@@ -8,8 +8,7 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - portainer_data:/data
-    secrets:
-      - portainer_key
+      - ./portainer_key.txt:/run/secrets/portainer:ro
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.portainer_web.rule=Host(`portainer.surikat.io`)"
@@ -20,10 +19,6 @@ services:
 volumes:
   portainer_data:
     name: portainer_data
-
-secrets:
-  portainer_key:
-    file: ./portainer_key.txt
 
 networks:
   surikat-network:
