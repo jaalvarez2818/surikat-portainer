@@ -14,11 +14,11 @@ services:
       - ./portainer_key.txt:/run/secrets/portainer:ro
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.portainer.rule=Host(`portainer.surikat.io`)"
+      - "traefik.http.routers.portainer.rule=Host(`10.8.0.1`)"
       - "traefik.http.routers.portainer.entryPoints=websecure"
       - "traefik.http.routers.portainer.tls=true"
       - "traefik.http.services.portainer.loadbalancer.server.port=9000"
-      - "traefik.http.routers.portainer.middlewares=portainer-https@docker"
+
 
 volumes:
   portainer_data:
