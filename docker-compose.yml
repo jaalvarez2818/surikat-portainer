@@ -4,7 +4,9 @@ services:
     image: portainer/portainer-ce:lts
     restart: always
     networks:
-      - surikat-network
+      surikat-network:
+        - ipv4_address: 172.18.0.200
+
     ports:
       - "9000:9000"
       - "9443:9443"
